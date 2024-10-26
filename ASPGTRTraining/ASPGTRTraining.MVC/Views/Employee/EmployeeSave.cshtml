@@ -1,0 +1,58 @@
+﻿@model Employee
+@{
+    ViewData["Title"] = "EmployeeSave";
+}
+
+<div>
+    <form asp-action="EmployeeSave" method="post">
+        <input type="hidden" asp-for="Id" />
+
+        <div class="form-group">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Address"></label>
+            <input asp-for="Address" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="City"></label>
+            <input asp-for="City" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Phone"></label>
+            <input asp-for="Phone" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label for="DeptId">Department</label>
+
+            <select asp-for="DeptId" class="form-control">
+                <option value="">Select Department</option>
+                @foreach (var department in ViewBag.Departments)
+                {
+                    <option value="@department.Id">@department.Name</option>
+                }
+            </select>
+
+        </div>
+        <div class="form-group">
+            <label for="DesigID">Designation</label>
+
+            <select asp-for="DesigID" class="form-control">
+                <option value="">Select Designation</option>
+                @foreach (var designation in ViewBag.Designations)
+                {
+                    <option value="@designation.Id">@designation.Name</option>
+                }
+            </select>
+
+        </div>
+
+        <button type="submit" class="btn btn-success mt-5">Save</button>
+    </form>
+
+</div>

@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<h1>@ViewData["Title"]</h1>
+
+@section Style {
+    <style>
+
+    </style>
+}
+<p>Use this page to detail your site's privacy policy.</p>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+            <h2><a asp-action="EmployeeSave" asp-controller="Home" asp-route-Id="@item.Id" class="btn btn-primary">Link @item.Id</a></h2>
+            <h2><a asp-action="EmployeeDelete" asp-controller="Home" asp-route-Id="@item.Id" class="btn btn-primary">Delete @item.Id</a></h2>
+
+
+                    <h5 class="card-title">Name: @item.Name</h5>
+                    <p class="card-text">Address: @item.Address</p>
+                    <p class="card-text">City: @item.City</p>
+                    <p class="card-text">Phone Number: @item.Phone</p>
+
+
+
+    }
+</div>
+
+@section jekono {
+    <p>This is from Privacy</p>
+}

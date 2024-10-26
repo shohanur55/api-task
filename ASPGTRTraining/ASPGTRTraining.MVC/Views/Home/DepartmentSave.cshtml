@@ -1,0 +1,13 @@
+﻿@model Department
+@{
+    ViewData["Title"] = "DepartmentSave";
+}
+
+<div>
+    <form asp-action="DepartmentSave">
+        <input asp-for="Id" type="hidden"/>
+        <input asp-for="Name" type="text" />
+        <button type="submit">Save</button>
+    </form>
+</div>
+

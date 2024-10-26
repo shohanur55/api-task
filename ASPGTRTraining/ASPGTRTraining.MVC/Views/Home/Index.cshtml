@@ -1,0 +1,68 @@
+﻿@model List<Department>
+@{
+    ViewData["Title"] = "Home Page";
+}
+@section Style {
+    <style>
+        h1 {
+            color: red;
+        }
+
+        h2 {
+            color: blue;
+            background-color: bisque;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Optional: Add padding and margin to the items */
+        .department-item {
+            margin-bottom: 20px;
+        }
+    </style>
+}
+
+<div class="container text-center">
+    <h1 class="display-4 my-4">Welcome</h1>
+    <p class="lead">
+        Learn about <a href="https://learn.microsoft.com/aspnet/core" class="text-decoration-none">building Web apps with ASP.NET Core</a>.
+    </p>
+
+    @* Placeholder for the loop (if needed) *@
+    @* @{
+    for (int i = 1; i <= 5; i++)
+    {
+    // <a asp-action="index" asp-controller="Home" asp-route-Id="@Id" class="btn btn-success">Link @Id</a>
+    }
+    } *@
+
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-6 department-item">
+                <h2><a asp-action="DepartmentSave" asp-controller="Home" asp-route-Id="@item.Id" class="btn btn-success">Link @item.Id</a></h2>
+                <h2><a asp-action="DepartmentDelete" asp-controller="Home" asp-route-Id="@item.Id" class="btn btn-danger">Delete @item.Id</a></h2>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Name: @item.Name</h5>
+                        <p class="card-text">Created At: @item.CreatedAt.ToShortDateString()</p>
+                        <p class="card-text">Uploaded By: @item.UpBy</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="my-4">
+        @for (int i = 1; i < 10; i++)
+        {
+            <p class="d-inline-block mx-2">@i</p>
+        }
+    </div>
+
+    @section jekono {
+        <div class="alert alert-info mt-4" role="alert">
+            Jekono section
+        </div>
+    }
+</div>
